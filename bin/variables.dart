@@ -8,6 +8,14 @@ void main() {
   final owner = 'Matt';
   final List<String> evolutions = <String>['Greymon', 'MetalGreymon', 'WarGreymon'];
 
+  dynamic digimonGlicth = 'Glicth';
+  digimonGlicth = 123;
+  digimonGlicth = true;
+  digimonGlicth = null;
+  digimonGlicth = [1, 2, 3];
+  digimonGlicth = {'name': 'Glicth'};
+  digimonGlicth = () => 'Glicth';
+
   print("""
     My digimon is $digimon
     HP: $hp
@@ -17,5 +25,6 @@ void main() {
     Enemies: $enemies
     Owner: $owner
     Evolutions: $evolutions
+    Digimon Glicth: $digimonGlicth
   """);
 }
