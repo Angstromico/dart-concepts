@@ -7,4 +7,5 @@ void main() {
   final lastName = 'Morales';
   const message = "Hello,";
   print("$message $name $middleName $lastName!");
+  print("${ message.toUpperCase() } $name $middleName $lastName!");
 }
