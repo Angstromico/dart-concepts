@@ -20,4 +20,7 @@ void main() {
 
   final reversedUniqueNumbers = uniqueNumbers.toList().reversed.toSet();
   print('Reversed unique numbers set: $reversedUniqueNumbers'); // {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+
+  final numbersGreaterThan5 = uniqueNumbers.where((number) => number > 5).toSet();
+  print('Numbers greater than 5: $numbersGreaterThan5'); // {6, 7, 8, 9, 10}
 }
