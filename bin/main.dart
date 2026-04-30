@@ -1,4 +1,4 @@
 void main() {
-  var name = "Manuel";
+  String name = "Manuel";
   print("Hello, $name!");
 }
