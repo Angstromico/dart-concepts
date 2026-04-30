@@ -16,4 +16,8 @@ void main() {
   print('Index of number 5: ${uniqueNumbers.toList().indexOf(5)}'); // 4
   print('Index 0 of the set: ${uniqueNumbers.elementAt(0)}'); // 1
   print('Index 5 of the set: ${uniqueNumbers.elementAt(5)}'); // 6
+  print('Reverse of the set list: ${uniqueNumbers.toList().reversed}'); // (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+
+  final reversedUniqueNumbers = uniqueNumbers.toList().reversed.toSet();
+  print('Reversed unique numbers set: $reversedUniqueNumbers'); // {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
 }
