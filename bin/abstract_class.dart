@@ -69,9 +69,18 @@ abstract class Serializable {
   Map<String, dynamic> toJson();
 }
 
+mixin JsonSerializable on Shape implements Serializable {
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type.metadata,
+    'description': description,
+    'area': area,
+  };
+}
+
 // Square "is a" Shape (inheritance) 
 // AND "acts as" Serializable (interface)
-class Square extends Shape implements Serializable {
+class Square extends Shape with JsonSerializable {
   final double side;
 
   Square(this.side);
