@@ -12,6 +12,7 @@ void main() {
   print('Area of square: ${square.area}');
   print('Description: ${square.description}');
   print('Type: ${square.type.metadata}');
+  print('Square as JSON: ${square.toJson()}');
 }
 
 enum ShapeType {
@@ -63,7 +64,14 @@ class Rectangle extends Shape {
 
 //Using implements instead of extends allows us to create a class that can implement multiple interfaces, which is not possible with extends. This is particularly useful in Dart, where a class can only extend one other class but can implement multiple interfaces. By using implements, we can define a class that adheres to multiple contracts, making our code more flexible and reusable.
 
-class Square implements Shape {
+// This is a "Contract" or "Interface"
+abstract class Serializable {
+  Map<String, dynamic> toJson();
+}
+
+// Square "is a" Shape (inheritance) 
+// AND "acts as" Serializable (interface)
+class Square extends Shape implements Serializable {
   final double side;
 
   Square(this.side);
@@ -72,8 +80,16 @@ class Square implements Shape {
   double get area => side * side;
 
   @override
-  String get description => "A shape with four equal straight sides.";
+  String get description => "A square with sides of $side";
 
   @override
   ShapeType get type => ShapeType.polygon;
+
+  // We MUST implement this because of the 'implements' keyword
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': 'Square',
+    'side': side,
+    'area': area,
+  };
 }
