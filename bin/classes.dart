@@ -1,5 +1,5 @@
 void main() {
-  final agumon =  Digimon(
+  final agumon = Digimon(
     name: 'Agumon',
     hp: 100,
     hasOwner: true,
@@ -10,6 +10,9 @@ void main() {
     evolutions: ['Greymon', 'MetalGreymon', 'WarGreymon'],
   );
   agumon.greet();
+  agumon.attack('Fireball');
+  agumon.evolve('Greymon');
+  agumon.digimonSummary();
 }
 
 class Digimon {
@@ -35,5 +38,30 @@ class Digimon {
 
   void greet() {
     print('Hello, I am $name!');
+  }
+
+  void attack(String skill) {
+    if (skills.contains(skill)) {
+      print('$name uses $skill!');
+    } else {
+      print('$name does not know $skill.');
+    }
+  }
+  void evolve(String evolution) {
+    if (evolutions.contains(evolution)) {
+      print('$name evolves into $evolution!');
+    } else {
+      print('$name cannot evolve into $evolution.');
+    }
+  }
+  void digimonSummary() {
+    print('Name: $name');
+    print('HP: $hp');
+    print('Has Owner: $hasOwner');
+    print('Is Alive: $isAlive');
+    print('Skills: ${skills.join(', ')}');
+    print('Enemies: ${enemies.join(', ')}');
+    print('Owner: $owner');
+    print('Evolutions: ${evolutions.join(', ')}');
   }
 }
