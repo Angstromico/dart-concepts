@@ -15,6 +15,8 @@ Future<void> main() async {
   try {
     final data = await fetchData();
     print(data);
+  } on Exception {
+      print('An exception occurred while fetching data.');
   } catch (error) {
     print('An error occurred: $error');
   } finally {
