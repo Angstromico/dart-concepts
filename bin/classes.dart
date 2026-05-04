@@ -13,6 +13,7 @@ void main() {
   agumon.attack('Fireball');
   agumon.evolve('Greymon');
   agumon.digimonSummary();
+  print(agumon);
 }
 
 class Digimon {
@@ -63,5 +64,10 @@ class Digimon {
     print('Enemies: ${enemies.join(', ')}');
     print('Owner: $owner');
     print('Evolutions: ${evolutions.join(', ')}');
+  }
+
+  @override
+  String toString() {
+    return 'Digimon(name: $name, hp: $hp, hasOwner: $hasOwner, isAlive: $isAlive, skills: ${skills.join(', ')}, enemies: ${enemies.join(', ')}, owner: $owner, evolutions: ${evolutions.join(', ')})';
   }
 }
