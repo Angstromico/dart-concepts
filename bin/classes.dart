@@ -14,6 +14,21 @@ void main() {
   agumon.evolve('Greymon');
   agumon.digimonSummary();
   print(agumon);
+  print('-----------------------------');
+  print('Creating a Digimon without an owner:');
+  final gabumon = Digimon.withoutOwner(
+    name: 'Gabumon',
+    hp: 120,
+    isAlive: true,
+    skills: ['Blue Blaster', 'Horn Attack'],
+    enemies: ['Gatomon', 'Patamon', 'Tentomon'],
+    evolutions: ['Garurumon', 'WereGarurumon', 'MetalGarurumon'],
+  );
+  gabumon.greet();
+  gabumon.attack('Blue Blaster');
+  gabumon.evolve('Garurumon');
+  gabumon.digimonSummary();
+  print(gabumon);
 }
 
 class Digimon {
@@ -34,6 +49,16 @@ class Digimon {
     required this.skills,
     required this.enemies,
     required this.owner,
+    required this.evolutions,
+  });
+  Digimon.withoutOwner({
+    required this.name,
+    required this.hp,
+    this.hasOwner = false,
+    this.isAlive,
+    required this.skills,
+    required this.enemies,
+    this.owner = 'No owner',
     required this.evolutions,
   });
 
