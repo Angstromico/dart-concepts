@@ -68,6 +68,6 @@ class Digimon {
 
   @override
   String toString() {
-    return 'Digimon(name: $name, hp: $hp, hasOwner: $hasOwner, isAlive: $isAlive, skills: ${skills.join(', ')}, enemies: ${enemies.join(', ')}, owner: $owner, evolutions: ${evolutions.join(', ')})';
+    return "Digimon(name: $name, hp: $hp, hasOwner: $hasOwner, isAlive: ${isAlive == true ? 'The creature lives' : 'The creature is dead'}, skills: ${skills.join(', ')}, enemies: ${enemies.join(', ')}, owner: $owner, evolutions: ${evolutions.join(', ')})";
   }
 }
