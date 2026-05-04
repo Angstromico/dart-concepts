@@ -1,4 +1,4 @@
-void main() {
+Future<void> main() async {
   print('This will run in the future!');
 
   Future.delayed(Duration(seconds: 2), () {
@@ -7,11 +7,17 @@ void main() {
 
   print('This will run at the end!');
 
-  fetchData().then((data) {
+  // fetchData().then((data) {
+  //   print(data);
+  // }).catchError(  (error) {
+  //   print('An error occurred: $error');
+  // });
+  try {
+    final data = await fetchData();
     print(data);
-  }).catchError(  (error) {
+  } catch (error) {
     print('An error occurred: $error');
-  });
+  }
 }
 
 Future<String> fetchData() async {
