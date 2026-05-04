@@ -6,4 +6,13 @@ void main() {
   });
 
   print('This will run at the end!');
+
+  fetchData().then((data) {
+    print(data);
+  });
+}
+
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 2)); // Simulating a network delay
+  return 'Data fetched from the server!';
 }
