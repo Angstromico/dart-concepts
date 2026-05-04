@@ -93,12 +93,4 @@ class Square extends Shape with JsonSerializable {
 
   @override
   ShapeType get type => ShapeType.polygon;
-
-  // We MUST implement this because of the 'implements' keyword
-  @override
-  Map<String, dynamic> toJson() => {
-    'type': 'Square',
-    'side': side,
-    'area': area,
-  };
 }
