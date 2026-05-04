@@ -9,6 +9,8 @@ void main() {
 
   fetchData().then((data) {
     print(data);
+  }).catchError(  (error) {
+    print('An error occurred: $error');
   });
 }
 
