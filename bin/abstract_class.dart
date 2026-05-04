@@ -1,6 +1,7 @@
 void main() {
   final bigCircle  = Circle(10);
   final rectangle = Rectangle(5, 3);
+  final square = Square(4);
 
   print('Area of big circle: ${bigCircle.area}');
   print('Description: ${bigCircle.description}');
@@ -8,6 +9,9 @@ void main() {
   print('Area of rectangle: ${rectangle.area}');
   print('Description: ${rectangle.description}');
   print('Type: ${rectangle.type.metadata}');
+  print('Area of square: ${square.area}');
+  print('Description: ${square.description}');
+  print('Type: ${square.type.metadata}');
 }
 
 enum ShapeType {
@@ -52,6 +56,23 @@ class Rectangle extends Shape {
 
   @override
   String get description => "A shape with four straight sides.";
+
+  @override
+  ShapeType get type => ShapeType.polygon;
+}
+
+//Using implements instead of extends allows us to create a class that can implement multiple interfaces, which is not possible with extends. This is particularly useful in Dart, where a class can only extend one other class but can implement multiple interfaces. By using implements, we can define a class that adheres to multiple contracts, making our code more flexible and reusable.
+
+class Square implements Shape {
+  final double side;
+
+  Square(this.side);
+
+  @override
+  double get area => side * side;
+
+  @override
+  String get description => "A shape with four equal straight sides.";
 
   @override
   ShapeType get type => ShapeType.polygon;
