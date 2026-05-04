@@ -17,6 +17,8 @@ Future<void> main() async {
     print(data);
   } catch (error) {
     print('An error occurred: $error');
+  } finally {
+    print('This will always run, regardless of success or error.');
   }
 }
 
