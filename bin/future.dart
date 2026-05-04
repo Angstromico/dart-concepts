@@ -15,8 +15,8 @@ Future<void> main() async {
   try {
     final data = await fetchData();
     print(data);
-  } on Exception {
-      print('An exception occurred while fetching data.');
+  } on Exception catch(error) {
+      print('An exception occurred while fetching data. Details: $error');
   } catch (error) {
     print('An error occurred: $error');
   } finally {
@@ -26,5 +26,6 @@ Future<void> main() async {
 
 Future<String> fetchData() async {
   await Future.delayed(Duration(seconds: 2)); // Simulating a network delay
-  return 'Data fetched from the server!';
+  throw Exception('Failed to fetch data from the server!'); // Simulating an error
+  //return 'Data fetched from the server!';
 }
