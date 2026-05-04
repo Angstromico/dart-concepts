@@ -78,8 +78,6 @@ mixin JsonSerializable on Shape implements Serializable {
   };
 }
 
-// Square "is a" Shape (inheritance) 
-// AND "acts as" Serializable (interface)
 class Square extends Shape with JsonSerializable {
   final double side;
 
